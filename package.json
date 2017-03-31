@@ -1,0 +1,32 @@
+{
+  "name": "mongo-deploy",
+  "version": "1.0.0",
+  "description": "mono on jelastic",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meluharan/mongo-deploy.git"
+  },
+  "author": "Mrl",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/meluharan/mongo-deploy/issues"
+  },
+  "homepage": "https://github.com/meluharan/mongo-deploy#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "dotenv": "^4.0.0",
+    "enum": "^2.4.0",
+    "es6-enum": "^1.1.0",
+    "express": "^4.15.2",
+    "mongoose": "^4.9.2"
+  },
+  "devDependencies": {
+    "eslint": "^3.18.0",
+    "eslint-config-google": "^0.7.1"
+  }
+}
+
