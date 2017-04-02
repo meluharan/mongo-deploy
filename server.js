@@ -1,9 +1,11 @@
 'use strict'
+
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise; //ES6 Promise
+require('dotenv').config();
 const Schema = mongoose.Schema;
 
 const catSchema = new Schema({
@@ -17,8 +19,7 @@ const catSchema = new Schema({
 
 const Cat = mongoose.model('Cat', catSchema);
 
- mongoose.connect('mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@{process.env.DB_HOST}:${process.env.DB_PORT}/Cat')
- .then(() => {
+mongoose.connect('mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}:${process.env.DB_PORT}/Cat').then(() => {
  console.log('Connected successfully.');
  app.listen(process.env.APP_PORT);
  }, err => {
@@ -41,15 +42,13 @@ app.get('/Cat', (req, res) => {
             console.log(d);
             res.send(d);
         }
-    ),
-        err => {
+    ),err => {
             res.send('Error: ' + err);
         };
 });
 
 
 app.post('/Cat', bodyParser.urlencoded({extended: true}), (req, res) => {
-        console.log(" here we are ....");
         console.log(req.body);
         Cat.create({
             name: req.body.name,
