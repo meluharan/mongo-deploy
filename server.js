@@ -19,7 +19,7 @@ const catSchema = new Schema({
 
 const Cat = mongoose.model('Cat', catSchema);
 
-mongoose.connect('mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}:${process.env.DB_PORT}/Cat').then(() => {
+mongoose.connect(`mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}:${process.env.DB_PORT}/test`).then(() => {
  console.log('Connected successfully.');
  app.listen(process.env.APP_PORT);
  }, err => {
